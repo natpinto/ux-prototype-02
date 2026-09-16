@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Prizm Civil Engineering — Homepage (High-Fidelity)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,7 +248,22 @@
   .why-card p{font-size:16px;line-height:1.65;color:var(--body);}
 
   /* TESTIMONIALS */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testi-carousel-wrap{position:relative;max-width:1000px;margin:0 auto;touch-action:pan-y;}
+  .testi-page{display:none;}
+  .testi-page.active{display:block;}
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .testi-carousel-wrap .arrow{
+    position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);
+    border:1.5px solid var(--teal);color:var(--teal);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:3;font-size:18px;transition:background .2s ease, color .2s ease;
+  }
+  .testi-carousel-wrap .arrow:hover{background:var(--teal);color:#fff;}
+  .testi-carousel-wrap .arrow.left{left:-64px;}
+  .testi-carousel-wrap .arrow.right{right:-64px;}
+  .dots span{cursor:pointer;}
+  @media (max-width:980px){
+    .testi-carousel-wrap .arrow{display:none;}
+  }
   .testi-card{
     background:var(--white);border:1px solid #E3ECE9;border-radius:var(--radius);
     padding:32px 28px;box-shadow:var(--shadow);
@@ -612,33 +628,56 @@
       <span class="eyebrow" style="justify-content:center;">What Others Are Saying</span>
       <h2>Personal Testimonials</h2>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-quote">&#8220;</div>
-        <p class="body-text">Prizm's team was responsive from day one and helped us navigate permitting far faster than we expected. They felt like an extension of our own team.</p>
-        <div class="testi-person">
-          <div class="avatar">JH</div>
-          <div><div class="name">Jordan Hail</div><div class="role">Project Manager, [Development Co.]</div></div>
+    <div class="testi-carousel-wrap">
+      <button class="arrow left" onclick="prizmTestiGo(prizmTestiIndex-1)" aria-label="Previous testimonials">&#8249;</button>
+      <button class="arrow right" onclick="prizmTestiGo(prizmTestiIndex+1)" aria-label="Next testimonials">&#8250;</button>
+      <div class="testi-viewport" id="testiViewport">
+        <div class="testi-page active">
+          <div class="testi-grid">
+            <div class="testi-card">
+              <div class="testi-quote">&#8220;</div>
+              <p class="body-text">I always know when I have Prizm on a project it is going to go smooth, and it will come in on time or under budget. They are always thinking ahead, and they understand what the utilities look like on the ground, not just on paper, and that has always been what I think has helped them and what I've always appreciated about our projects together. We never had any change order for utility conflicts or for something that was left out because they thought of it all.</p>
+              <div class="testi-person">
+                <div class="avatar">LS</div>
+                <div><div class="name">City of Lake Stevens</div></div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-quote">&#8220;</div>
+              <p class="body-text">Our projects have consistently run more smoothly and resulted in better projects when Prizm has been involved, whether it's putting together design, inspecting in the field, or managing construction.</p>
+              <div class="testi-person">
+                <div class="avatar">KI</div>
+                <div><div class="name">City of Kirkland</div></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">&#8220;</div>
-        <p class="body-text">The level of local knowledge Prizm brought to our project saved us months of back-and-forth with the city. Highly recommend.</p>
-        <div class="testi-person">
-          <div class="avatar">CL</div>
-          <div><div class="name">Casey Long</div><div class="role">Director of Planning, [Municipality]</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">&#8220;</div>
-        <p class="body-text">We've worked with Prizm on three projects now and every one has been smooth, well-communicated, and delivered on time.</p>
-        <div class="testi-person">
-          <div class="avatar">MR</div>
-          <div><div class="name">Morgan Reyes</div><div class="role">Principal, [Architecture Firm]</div></div>
+        <div class="testi-page">
+          <div class="testi-grid">
+            <div class="testi-card">
+              <div class="testi-quote">&#8220;</div>
+              <p class="body-text">I've had the pleasure of working with Prizm on several of our roadway and utility projects. Their communication was always excellent – consistently responsive and kept us informed throughout each project phase if any issues arose.</p>
+              <div class="testi-person">
+                <div class="avatar">NB</div>
+                <div><div class="name">City of North Bend</div></div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-quote">&#8220;</div>
+              <p class="body-text">From design through construction administration, Prizm demonstrates solid technical expertise and exceptional project management skills. I'm confident they will continue to bring the same high level of performance and professionalism to future projects. I would highly recommend working with Prizm based on our positive experience.</p>
+              <div class="testi-person">
+                <div class="avatar">NB</div>
+                <div><div class="name">City of North Bend</div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="dots"><span class="active"></span><span></span><span></span></div>
+    <div class="dots" id="testiDots">
+      <span class="active" onclick="prizmTestiGo(0)"></span>
+      <span onclick="prizmTestiGo(1)"></span>
+    </div>
   </div>
 </section>
 
@@ -703,6 +742,46 @@
     window.prizmHeroGo = function(n){ go(n); clearInterval(timer); start(); };
     function start(){ timer = setInterval(function(){ go((i + 1) % slides.length); }, 5000); }
     if (slides.length > 1) start();
+  })();
+
+  var prizmTestiIndex = 0;
+  (function(){
+    var pages = document.querySelectorAll('.testi-page');
+    var dots = document.querySelectorAll('#testiDots span');
+    window.prizmTestiGo = function(n){
+      var total = pages.length;
+      prizmTestiIndex = ((n % total) + total) % total;
+      pages.forEach(function(p, idx){ p.classList.toggle('active', idx === prizmTestiIndex); });
+      dots.forEach(function(d, idx){ d.classList.toggle('active', idx === prizmTestiIndex); });
+    };
+
+    var viewport = document.getElementById('testiViewport');
+    var touchStartX = null;
+    viewport.addEventListener('touchstart', function(e){
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive:true});
+    viewport.addEventListener('touchend', function(e){
+      if (touchStartX === null) return;
+      var diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 40){
+        if (diff > 0){ prizmTestiGo(prizmTestiIndex + 1); }
+        else { prizmTestiGo(prizmTestiIndex - 1); }
+      }
+      touchStartX = null;
+    }, {passive:true});
+
+    // Trackpad swipe support (MacBook two-finger horizontal swipe)
+    var wheelCooldown = false;
+    viewport.addEventListener('wheel', function(e){
+      if (wheelCooldown) return;
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 20){
+        e.preventDefault();
+        if (e.deltaX > 0){ prizmTestiGo(prizmTestiIndex + 1); }
+        else { prizmTestiGo(prizmTestiIndex - 1); }
+        wheelCooldown = true;
+        setTimeout(function(){ wheelCooldown = false; }, 600);
+      }
+    }, {passive:false});
   })();
 </script>
 </body>
