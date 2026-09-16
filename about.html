@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prizm Civil Engineering — About (High-Fidelity)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#333352;
+    --navy-light:#474763;
+    --navy-lighter:#707086;
+    --teal-deep:#3F7A71;
+    --teal:#53968B;
+    --teal-mid:#64A197;
+    --teal-mid2:#87B6AE;
+    --teal-light:#A9CBC5;
+    --teal-tint:#EEF4F2;
+    --teal-tint-soft:#F5FAF9;
+    --orange:#D89B58;
+    --orange-light:#ECCDAC;
+    --orange-dark:#C4884A;
+    --tan-tint:#FBF3EA;
+    --neutral-tint:#F4F5F7;
+    --ink:#333352;
+    --body:#5B5B6B;
+    --white:#FFFFFF;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(51,51,82,0.08);
+    --shadow-hover:0 16px 40px rgba(51,51,82,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    color:var(--body);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Plus Jakarta Sans','Inter',Arial,sans-serif;
+    color:var(--ink);
+    margin:0;
+    line-height:1.15;
+  }
+  p{margin:0;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;background:var(--teal);display:inline-block;border-radius:2px;
+  }
+  .eyebrow.orange{color:var(--orange);}
+  .eyebrow.orange::before{background:var(--orange);}
+  .section{padding:96px 0;}
+  .section-head{max-width:640px;margin:0 auto 56px auto;text-align:center;}
+  .section-head.left{margin:0 0 48px 0;text-align:left;}
+  .section-head h2{font-size:34px;font-weight:800;}
+  .section-head p{margin-top:14px;font-size:17px;line-height:1.6;color:var(--body);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 32px;border-radius:999px;font-weight:700;font-size:14px;
+    letter-spacing:0.2px;cursor:pointer;transition:all .2s ease;border:2px solid transparent;
+  }
+  .btn-teal{background:var(--teal);color:var(--white);}
+  .btn-teal:hover{background:var(--teal-deep);transform:translateY(-1px);}
+  .btn-white{background:var(--white);color:var(--teal-deep);}
+  .btn-white:hover{background:var(--teal-tint);transform:translateY(-1px);}
+  .btn-orange{background:var(--orange);color:var(--navy);}
+  .btn-orange:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  .btn-orange-outline{background:var(--white);color:var(--orange);border:2px solid var(--orange);}
+  .btn-orange-outline:hover{background:var(--orange);color:var(--white);transform:translateY(-1px);}
+  .btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:var(--white);}
+  .link-teal{color:var(--teal);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .15s ease;}
+  .link-teal:hover{gap:10px;}
+  .bg-teal-tint{background:var(--teal-tint);}
+  .bg-tan-tint{background:var(--tan-tint);}
+  .bg-neutral-tint{background:var(--neutral-tint);}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid #EDEEF1;
+  }
+  .nav-inner{
+    margin:0;padding:0 40px;height:108px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:42px;height:42px;border-radius:10px;
+    background:linear-gradient(135deg,var(--teal) 0%, var(--navy) 100%);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;
+  }
+  .logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .logo-text b{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;color:var(--navy);letter-spacing:0.5px;}
+  .logo-text span{font-size:9.5px;letter-spacing:2px;color:var(--teal);font-weight:700;}
+  nav.links{display:flex;gap:40px;}
+  nav.links a{font-size:16px;font-weight:600;color:var(--navy-light);position:relative;padding:6px 0;}
+  nav.links a:hover{color:var(--teal);}
+  nav.links a.active{color:var(--navy);}
+  nav.links a.active::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:var(--teal);border-radius:2px;
+  }
+
+  /* MOBILE NAV TOGGLE */
+  .nav-inner{position:relative;}
+  .nav-toggle-input{display:none;}
+  .nav-toggle-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;cursor:pointer;order:3;background:none;border:none;padding:0;}
+  .nav-toggle-btn span{display:block;width:100%;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2){opacity:0;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-cta{display:none;}
+  @media (max-width:980px){
+    .nav-inner{flex-wrap:wrap;}
+    .nav-toggle-btn{display:flex;}
+    nav.links{
+      order:4;flex-basis:100%;display:none;flex-direction:column;gap:0;
+      background:var(--white);position:absolute;left:0;right:0;top:100%;
+      padding:6px 40px 18px;box-shadow:0 16px 30px rgba(51,51,82,0.12);
+      border-bottom:1px solid #ECEDF1;
+    }
+    nav.links a{padding:14px 0;border-bottom:1px solid #F0F0F3;}
+    nav.links a:last-of-type{border-bottom:none;}
+    .nav-toggle-input:checked ~ nav.links{display:flex;}
+    .nav-inner > a.btn{display:none;}
+    .mobile-cta{display:inline-flex;margin-top:6px;}
+  }
+
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:640px;display:flex;align-items:center;
+    overflow:hidden;
+  }
+  .hero-slides{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-slide{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1.4s ease;}
+  .hero-slide.active{opacity:1;}
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:none;
+  }
+  .hero-dots{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:flex;gap:10px;}
+  .hero-dots button{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:rgba(255,255,255,0.4);cursor:pointer;transition:background .2s ease, transform .2s ease;}
+  .hero-dots button.active{background:#fff;transform:scale(1.2);}
+  .hero-content{position:absolute;bottom:28px;left:40px;z-index:2;max-width:520px;}
+  .hero-content .eyebrow{color:var(--teal-light);justify-content:flex-start;}
+  .hero-content .eyebrow::before{background:var(--teal-light);}
+  .hero-content h1{
+    color:#fff;font-size:28px;font-weight:800;max-width:none;margin:8px 0 0 0;letter-spacing:-0.3px;line-height:1.25;white-space:nowrap;
+  }
+  .hero-content .sub{
+    display:block;color:rgba(255,255,255,0.88);font-size:17px;line-height:1.55;max-width:none;margin:12px 0 0 0;
+  }
+  .hero-text-panel{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:0;
+    padding:26px 28px;
+    display:inline-block;
+    max-width:520px;
+  }
+
+  /* WHO WE ARE */
+  .who-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;}
+  .collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;}
+  .collage-main{grid-row:1 / 3;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:100%;min-height:420px;}
+  .collage-sub{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:202px;}
+  .who-text h2{font-size:32px;font-weight:800;}
+  .who-text p{font-size:17px;line-height:1.75;color:var(--body);margin-top:18px;}
+
+  /* HOW WE WORK */
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .step-card{background:var(--white);border-radius:var(--radius);padding:40px 22px;text-align:center;box-shadow:var(--shadow);position:relative;margin:0 26px;}
+  .step-num{
+    width:52px;height:52px;border-radius:50%;border:2px solid var(--teal);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;margin:0 auto 20px auto;
+    font-family:'Plus Jakarta Sans',sans-serif;
+  }
+  .step-card h3{font-size:21px;font-weight:800;margin-bottom:12px;}
+  .step-card p{font-size:16px;line-height:1.6;color:var(--body);}
+  .step-arrow{position:absolute;top:50%;right:-44px;transform:translateY(-18px);width:36px;height:36px;z-index:2;}
+  .step-arrow svg{width:100%;height:100%;display:block;}
+  @media (max-width:900px){
+    .steps-grid{grid-template-columns:1fr;}
+    .step-arrow{display:none;}
+    .step-card{margin:0 0 20px 0;}
+  }
+
+  /* WHY CHOOSE */
+  .why2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px;}
+  .why2-card{background:var(--white);border:1px solid #EFDFC4;border-radius:var(--radius);padding:32px 24px;text-align:center;}
+  .why2-icon{
+    width:44px;height:44px;border-radius:50%;border:2px solid var(--orange);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px auto;position:relative;
+  }
+  .why2-icon::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);}
+  .why2-card h3{font-size:15px;font-weight:800;margin-bottom:10px;}
+  .why2-card p{font-size:16px;line-height:1.6;color:var(--body);}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .team-card{text-align:left;}
+  .team-photo{border-radius:var(--radius);overflow:hidden;height:230px;box-shadow:var(--shadow);position:relative;}
+  .team-social{
+    position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,0.95);display:flex;align-items:center;justify-content:center;
+  }
+  .team-card .name{font-size:15.5px;font-weight:800;color:var(--ink);margin-top:16px;}
+  .team-card .role{font-size:12.5px;color:var(--navy-lighter);margin-top:4px;}
+  .team-card .linkedin{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--teal);margin-top:10px;}
+  .team-card .linkedin:hover{color:var(--teal-deep);}
+
+  /* CERTIFICATIONS */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 36px;}
+  .cert-card{
+    display:flex;align-items:center;gap:14px;
+  }
+  .cert-badge{
+    width:26px;height:26px;border-radius:50%;background:var(--teal);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cert-card .label{font-size:15.5px;font-weight:700;color:var(--navy);}
+
+  /* CAREERS BANNER */
+  .career-cta{position:relative;overflow:hidden;padding:100px 0;text-align:center;}
+  .career-art{position:absolute;inset:0;}
+  .career-overlay{position:absolute;inset:0;background:linear-gradient(120deg, rgba(51,51,82,0.90) 0%, rgba(63,122,113,0.78) 60%, rgba(83,150,139,0.6) 100%);}
+  .career-inner{position:relative;z-index:1;}
+  .career-inner h2{color:#fff;font-size:32px;font-weight:800;}
+  .career-inner p{color:rgba(255,255,255,0.88);font-size:17px;line-height:1.65;max-width:600px;margin:16px auto 0 auto;}
+  .career-actions{display:flex;gap:20px;justify-content:center;margin-top:32px;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#fff;padding:64px 0 28px 0;}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-col h4{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-light);margin-bottom:18px;font-weight:700;}
+  .footer-links{display:flex;flex-direction:column;gap:12px;}
+  .footer-links a{font-size:14px;color:rgba(255,255,255,0.82);}
+  .footer-links a:hover{color:var(--teal-light);}
+  .footer-contact p{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.9;}
+  .social-row{display:flex;gap:12px;margin-top:18px;}
+  .social-circle{
+    width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.10);
+    display:flex;align-items:center;justify-content:center;transition:background .2s ease;
+  }
+  .social-circle:hover{background:var(--teal);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px;}
+  .footer-bottom p{font-size:12.5px;color:rgba(255,255,255,0.55);}
+
+  @media (max-width:980px){
+    .who-grid{grid-template-columns:1fr;}
+    .why2-grid{grid-template-columns:repeat(2,1fr);}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .cert-grid{grid-template-columns:1fr;}
+  }
+
+  /* PHONE OVERRIDES */
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .hero-content{left:20px;bottom:20px;max-width:calc(100% - 40px);}
+    .hero-content h1{font-size:28px;}
+    .team-grid{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:76px;width:auto;display:block;margin-left:-4px;">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu"><span></span><span></span><span></span></label>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+          <a class="btn btn-orange-outline mobile-cta" href="contact.html">Get in Touch</a>
+    </nav>
+    <a class="btn btn-orange-outline" href="contact.html">Get in Touch</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active">
+      <img src="images/about-the-prizm-civil-engineering-team.jpg" alt="The Prizm Civil Engineering team" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;display:block;transform:scale(1.18) translateX(30px);transform-origin:center 65%;">
+    </div>
+    <div class="hero-slide">
+      <img src="images/about-the-prizm-team-reviewing-engineering-pla.jpg" alt="The Prizm team reviewing engineering plans in the office" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  
+    <div class="hero-slide">
+      <img src="images/about-image-03.jpg" alt="The Prizm founding team standing on a dock overlooking a Pacific Northwest lake" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.10) translateX(4.8%);transform-origin:center center;">
+    </div>
+  
+    <div class="hero-slide">
+      <img src="images/about-the-prizm-team-working-at-their-desks-in.jpg" alt="The Prizm team working at their desks in the office" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-dots">
+    <button class="active" onclick="prizmHeroGo(0)" aria-label="Slide 1"></button>
+    <button onclick="prizmHeroGo(1)" aria-label="Slide 2"></button>
+    <button onclick="prizmHeroGo(2)" aria-label="Slide 3"></button>
+    <button onclick="prizmHeroGo(3)" aria-label="Slide 4"></button>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text-panel">
+      <span class="eyebrow">ABOUT PRIZM</span>
+      <h1>A Team You Can Count On</h1>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section">
+  <div class="wrap">
+    <div class="who-grid">
+      <div class="collage">
+        <div class="collage-main">
+          <img src="images/about-image-05.jpg" alt="The Prizm team reviewing a site plan on the conference room screen" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);">
+        </div>
+        <div class="collage-sub">
+          <img src="images/about-the-prizm-team-in-a-lighthearted-discuss.jpg" alt="The Prizm team in a lighthearted discussion around the table" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);">
+        </div>
+        <div class="collage-sub">
+          <img src="images/about-close-up-of-the-prizm-team-marking-up-a-.jpg" alt="Close-up of the Prizm team marking up a site plan" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);">
+        </div>
+      </div>
+      <div class="who-text">
+        <span class="eyebrow">Who We Are</span>
+        <h2>A Team Rooted in the Pacific Northwest</h2>
+        <p>Prizm was founded by four former colleagues with a simple goal in mind: to create a place where people are cared for and care about their work.</p>
+        <p>Together, we bring over 55 years of experience in helping communities grow, designing reliable infrastructure, and creating positive interactions with the built environment. Based in Bellevue, our team has spent that time working directly with municipalities, developers, and property owners across the Pacific Northwest, building the kind of local knowledge that only comes from years in the region.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section bg-teal-tint">
+  <div class="wrap" style="max-width:1360px;">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">Our Process</span>
+      <h2>How We Work</h2>
+      <p>A clear, collaborative process from first conversation to project completion.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Listen</h3>
+        <p>We take time to understand your goals and project needs.</p>
+        <span class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M17 6l5 6-5 6"/></svg></span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Plan</h3>
+        <p>Develop practical engineering solutions tailored to your project.</p>
+        <span class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M17 6l5 6-5 6"/></svg></span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Collaborate</h3>
+        <p>Maintain clear communication throughout every phase.</p>
+        <span class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M17 6l5 6-5 6"/></svg></span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Deliver</h3>
+        <p>Complete projects efficiently with quality and attention to detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">Prizm People</span>
+      <h2>Meet the People Behind Prizm</h2>
+      <p>A team dedicated to building lasting relationships and delivering exceptional engineering solutions.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#87B6AE"/><stop offset="100%" stop-color="#333352"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t1)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Principal Engineer</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#64A197"/><stop offset="100%" stop-color="#3F7A71"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t2)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Director of Planning</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A9CBC5"/><stop offset="100%" stop-color="#53968B"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t3)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Senior Civil Engineer</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#333352" /><stop offset="100%" stop-color="#64A197"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t4)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Site Design Lead</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ECCDAC"/><stop offset="100%" stop-color="#3F7A71"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t5)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Project Manager</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#87B6AE"/><stop offset="100%" stop-color="#474763"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t6)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Civil Engineer</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#64A197"/><stop offset="100%" stop-color="#333352"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t7)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Permitting Specialist</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg width="100%" height="100%" viewBox="0 0 260 230" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="t8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A9CBC5"/><stop offset="100%" stop-color="#3F7A71"/></linearGradient></defs>
+            <rect width="260" height="230" fill="url(#t8)"/>
+            <circle cx="130" cy="95" r="38" fill="#ffffff" opacity="0.9"/><path d="M60 210 q70 -75 140 0 z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <div class="team-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#53968B"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+          </div>
+        </div>
+        <div class="name">Team Member Name</div>
+        <div class="role">Office Administrator</div>
+        <a class="linkedin" href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="#53968B"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.01h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3.01 5.42 6.93V23h-4.5v-6.63c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.49V23h-4.5V8.25z"/></svg> LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section bg-neutral-tint">
+  <div class="wrap">
+    <div class="section-head left">
+      <span class="eyebrow">Credentials</span>
+      <h2 style="font-size:26px;">Certifications &amp; Professional Affiliations</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">Licensed Professional Engineers (PE)</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">WSDOT Qualified Consultant</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">APWA Member</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">ACEC Member Firm</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">Licensed in Washington State</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="label">Industry Certification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS CTA -->
+<section class="career-cta">
+  <div class="career-art">
+    <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="careerGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#87B6AE"/><stop offset="60%" stop-color="#4C8B81"/><stop offset="100%" stop-color="#333352"/></linearGradient></defs>
+      <rect width="1200" height="400" fill="url(#careerGrad)"/>
+      <g fill="#ffffff" opacity="0.08">
+        <circle cx="140" cy="80" r="120"/><circle cx="1080" cy="330" r="160"/><circle cx="620" cy="60" r="70"/>
+      </g>
+    </svg>
+  </div>
+  <div class="career-overlay"></div>
+  <div class="wrap career-inner">
+    <span class="eyebrow" style="justify-content:center;color:var(--teal-light);">Careers at Prizm</span>
+    <h2>Build Your Career at Prizm</h2>
+    <p>At Prizm, we believe great projects start with great people. Join a collaborative team where your ideas are valued, your growth is supported, and your work makes a lasting impact.</p>
+    <div class="career-actions">
+      <a class="btn btn-orange" href="careers.html">Explore Careers</a>
+      <a class="link-teal" href="careers.html#open-positions" style="color:#fff;align-self:center;">View Open Positions
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:260px;">
+        <a class="logo" href="index.html" style="background:#fff;border-radius:10px;padding:10px 16px;display:inline-flex;align-items:center;">
+          <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:40px;width:auto;display:block;">
+        </a>
+        <p style="font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-top:16px;">Local civil engineering solutions for public &amp; private development in the Puget Sound region.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <p>[Phone Number]<br>hello@prizmland.com<br>11808 Northup Way Suite 100, Bellevue, WA 98005</p>
+        <div class="social-row">
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 21v-7.5H16l.5-3H13.5V8.2c0-.87.24-1.46 1.5-1.46H16.6V4.14C16.3 4.1 15.3 4 14.1 4c-2.4 0-4 1.46-4 4.15v2.35H7.6v3h2.5V21h3.4z"/></svg></a>
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Prizm Consulting, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots = document.querySelectorAll('.hero-dots button');
+    var i = 0, timer;
+    function go(n){
+      i = n;
+      slides.forEach(function(s, idx){ s.classList.toggle('active', idx === i); });
+      dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    }
+    window.prizmHeroGo = function(n){ go(n); clearInterval(timer); start(); };
+    function start(){ timer = setInterval(function(){ go((i + 1) % slides.length); }, 5000); }
+    if (slides.length > 1) start();
+  })();
+</script>
+</body>
+</html>

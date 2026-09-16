@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prizm Civil Engineering — Projects (High-Fidelity)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#333352;
+    --navy-light:#474763;
+    --navy-lighter:#707086;
+    --teal-deep:#3F7A71;
+    --teal:#53968B;
+    --teal-mid:#64A197;
+    --teal-mid2:#87B6AE;
+    --teal-light:#A9CBC5;
+    --teal-tint:#EEF4F2;
+    --tan-tint:#FBF3EA;
+    --neutral-tint:#F4F5F7;
+    --orange:#D89B58;
+    --orange-dark:#C4884A;
+    --ink:#333352;
+    --body:#5B5B6B;
+    --white:#FFFFFF;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(51,51,82,0.08);
+    --shadow-hover:0 16px 40px rgba(51,51,82,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--body);background:var(--white);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Plus Jakarta Sans','Inter',Arial,sans-serif;color:var(--ink);margin:0;line-height:1.15;}
+  p{margin:0;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--teal);display:inline-block;border-radius:2px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 32px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;transition:all .2s ease;border:2px solid transparent;}
+  .btn-orange{background:var(--orange);color:var(--navy);}
+  .btn-orange:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  .btn-orange-outline{background:var(--white);color:var(--orange);border:2px solid var(--orange);}
+  .btn-orange-outline:hover{background:var(--orange);color:var(--white);transform:translateY(-1px);}
+  .link-teal{color:var(--teal);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .15s ease;}
+  .link-teal:hover{gap:10px;}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);border-bottom:1px solid #EDEEF1;}
+  .nav-inner{margin:0;padding:0 40px;height:108px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  nav.links{display:flex;gap:40px;}
+  nav.links a{font-size:16px;font-weight:600;color:var(--navy-light);position:relative;padding:6px 0;}
+  nav.links a:hover{color:var(--teal);}
+  nav.links a.active{color:var(--navy);}
+  nav.links a.active::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:var(--teal);border-radius:2px;}
+
+  /* MOBILE NAV TOGGLE */
+  .nav-inner{position:relative;}
+  .nav-toggle-input{display:none;}
+  .nav-toggle-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;cursor:pointer;order:3;background:none;border:none;padding:0;}
+  .nav-toggle-btn span{display:block;width:100%;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2){opacity:0;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-cta{display:none;}
+  @media (max-width:980px){
+    .nav-inner{flex-wrap:wrap;}
+    .nav-toggle-btn{display:flex;}
+    nav.links{
+      order:4;flex-basis:100%;display:none;flex-direction:column;gap:0;
+      background:var(--white);position:absolute;left:0;right:0;top:100%;
+      padding:6px 40px 18px;box-shadow:0 16px 30px rgba(51,51,82,0.12);
+      border-bottom:1px solid #ECEDF1;
+    }
+    nav.links a{padding:14px 0;border-bottom:1px solid #F0F0F3;}
+    nav.links a:last-of-type{border-bottom:none;}
+    .nav-toggle-input:checked ~ nav.links{display:flex;}
+    .nav-inner > a.btn{display:none;}
+    .mobile-cta{display:inline-flex;margin-top:6px;}
+  }
+
+
+  .page-header{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid #ECEDF1;background:#F3F4F6;}
+  .page-header-bg{position:absolute;inset:0;z-index:0;}
+  .page-header-map{position:absolute;left:-50px;top:0;width:64%;height:100%;
+    -webkit-mask-image:linear-gradient(to right,#000 0%,#000 72%,rgba(0,0,0,0.5) 82%,rgba(0,0,0,0.15) 90%,transparent 98%);
+    mask-image:linear-gradient(to right,#000 0%,#000 72%,rgba(0,0,0,0.5) 82%,rgba(0,0,0,0.15) 90%,transparent 98%);}
+  .page-header-map img{width:100%;height:100%;object-fit:contain;object-position:0% center;display:block;}
+  .page-header-photo{position:absolute;right:0;top:0;width:62%;height:100%;overflow:hidden;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 55%,#000 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 55%,#000 100%);}
+  .page-header-photo img{width:100%;height:100%;object-fit:cover;object-position:58% 42%;display:block;}
+  .page-header-photo-tint{position:absolute;inset:0;background:rgba(255,255,255,0.45);}
+  .page-header .wrap{position:relative;z-index:2;width:100%;}
+  .page-header-text{max-width:440px;margin-left:auto;text-align:right;position:relative;top:36px;}
+  .page-header h1{font-size:36px;font-weight:800;}
+  .page-header p{margin-top:16px;font-size:17px;line-height:1.65;color:var(--body);}
+  .page-header-stat{
+    position:absolute;left:40px;bottom:22px;z-index:3;
+    background:rgba(255,255,255,0.28);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(51,51,82,0.10);
+    border-radius:var(--radius);
+    padding:22px 30px;
+    box-shadow:var(--shadow);
+  }
+  .page-header-stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:var(--navy);line-height:1;}
+  .page-header-stat .label{margin-top:6px;font-size:13.5px;font-weight:700;color:var(--teal-deep);text-transform:uppercase;letter-spacing:0.6px;}
+
+  .carousel-section{padding:70px 0;position:relative;}
+  .carousel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;}
+  .carousel-head h2{font-size:26px;font-weight:800;}
+  .carousel-wrap{position:relative;}
+  .carousel-track{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .arrow{
+    position:absolute;top:120px;width:44px;height:44px;border-radius:50%;background:var(--white);
+    border:1.5px solid var(--teal);color:var(--teal);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:3;font-size:18px;transition:background .2s ease, color .2s ease;
+  }
+  .arrow:hover{background:var(--teal);color:#fff;}
+  .arrow.left{left:-64px;}
+  .arrow.right{right:-64px;}
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:32px;}
+  .dots span{width:8px;height:8px;border-radius:50%;background:var(--teal-light);}
+  .dots span.active{background:var(--teal);}
+
+  .project-card{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid #ECEDF1;box-shadow:var(--shadow);transition:box-shadow .2s ease, transform .2s ease;}
+  .project-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+  .project-img{height:190px;}
+  .project-body{padding:22px 22px 26px 22px;}
+  .project-body h3{font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.35;}
+  .project-body .city{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:10px;}
+  .project-body p{font-size:16px;line-height:1.6;color:var(--body);margin-bottom:16px;}
+
+  .final-cta{background:var(--neutral-tint);padding:96px 0;}
+  .final-cta-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:64px;align-items:center;}
+  .final-cta-text h2{color:var(--navy);font-size:34px;font-weight:800;max-width:440px;}
+  .final-cta-text p{color:var(--body);font-size:17px;line-height:1.65;margin-top:16px;max-width:420px;}
+  .final-cta-text .btn{margin-top:32px;}
+  .final-cta-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:340px;}
+  @media (max-width:860px){
+    .final-cta-grid{grid-template-columns:1fr;}
+    .final-cta-img{order:-1;height:220px;}
+  }
+
+  footer{background:var(--navy);color:#fff;padding:64px 0 28px 0;}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-col h4{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-light);margin-bottom:18px;font-weight:700;}
+  .footer-links{display:flex;flex-direction:column;gap:12px;}
+  .footer-links a{font-size:14px;color:rgba(255,255,255,0.82);}
+  .footer-links a:hover{color:var(--teal-light);}
+  .footer-contact p{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.9;}
+  .social-row{display:flex;gap:12px;margin-top:18px;}
+  .social-circle{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;transition:background .2s ease;}
+  .social-circle:hover{background:var(--teal);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px;}
+  .footer-bottom p{font-size:12.5px;color:rgba(255,255,255,0.55);}
+
+  @media (max-width:980px){
+    .carousel-track{grid-template-columns:1fr;}
+    .arrow{display:none;}
+  }
+
+  /* PHONE OVERRIDES */
+  @media (max-width:700px){
+    .page-header{min-height:340px;flex-direction:column;justify-content:center;padding:40px 0;}
+    .page-header-bg{display:none;}
+    .page-header .wrap{width:100%;}
+    .page-header-text{text-align:center;margin:0 auto;max-width:100%;top:0;}
+    .page-header-stat{position:static;margin:22px auto 0;display:inline-flex;flex-direction:column;align-items:center;text-align:center;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .page-header-text h1{font-size:28px;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:76px;width:auto;display:block;margin-left:-4px;">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu"><span></span><span></span><span></span></label>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+          <a class="btn btn-orange-outline mobile-cta" href="contact.html">Get in Touch</a>
+    </nav>
+    <a class="btn btn-orange-outline" href="contact.html">Get in Touch</a>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-bg"><div class="page-header-map"><img src="images/projects-image-01.png" alt="Map of Washington State showing Prizm project locations across the Puget Sound region"></div><div class="page-header-photo"><img src="images/about-close-up-of-the-prizm-team-marking-up-a-.jpg" alt=" alt="The Prizm team reviewing site plans in the conference room"><div class="page-header-photo-tint"></div></div></div>
+
+  <div class="wrap">
+    <div class="page-header-text">
+      <h1>Our Projects</h1>
+      <p>Explore a selection of Prizm's work across site design, planning, and civil engineering for public and private clients.</p>
+    </div>
+  </div>
+  <div class="page-header-stat">
+    <div class="num">152</div>
+    <div class="label">Projects Completed Since 2024</div>
+  </div>
+</div>
+
+<!-- PUBLIC CAROUSEL -->
+<section class="carousel-section" id="public-sector">
+  <div class="wrap">
+    <div class="carousel-head">
+      <div>
+        <h2>Public</h2>
+      </div>
+    </div>
+    <div class="carousel-wrap">
+      <button class="arrow left" aria-label="Previous">&#8249;</button>
+      <button class="arrow right" aria-label="Next">&#8250;</button>
+      <div class="carousel-track">
+
+        <div class="project-card">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="pub1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A9CBC5"/><stop offset="100%" stop-color="#53968B"/></linearGradient></defs>
+              <rect width="320" height="190" fill="url(#pub1)"/>
+              <g stroke="#ffffff" stroke-width="2" opacity="0.55" fill="none"><path d="M0 140 L85 90 L170 125 L255 75 L320 110"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Mercer Island, WA</div>
+            <h3 id="water-system-improvements-2026">2026 Water System Improvements</h3>
+            <p>Provided design and specifications for the replacement of a 65-year-old cast iron water main along 82nd Ave SE, Forest Ave SE, and W Mercer Pl. The improvements included the replacement of 1,000 linear feet of undersized 4- and 6-inch cast iron watermain with new 6- and 8-inch ductile iron pipe, replacement of PRV station F3-B, upgraded fire hydrants and new services to existing parcels.</p>
+          </div>
+        </div>
+
+        <div class="project-card" id="91st-ave-multi-use-path">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="pub2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#87B6AE"/><stop offset="100%" stop-color="#3F7A71"/></linearGradient></defs>
+              <rect width="320" height="190" fill="url(#pub2)"/>
+              <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5"><circle cx="160" cy="95" r="40"/><circle cx="160" cy="95" r="22"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Lake Stevens, WA</div>
+            <h3>91st Ave SE Multi-Use Path (Phase 2)</h3>
+            <p>Provided design and specifications to build ±2,400 LF of a shared multi-use path along the eastside of 91st Ave SE. Project included the design of 18 new curb ramps and stormwater improvements.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="190" fill="#F4F5F7"/>
+              <rect x="6" y="6" width="308" height="178" fill="none" stroke="#D7D9E0" stroke-width="2" stroke-dasharray="6 6"/>
+              <g stroke="#B7BAC5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="130" y="75" width="60" height="44" rx="4"/><circle cx="146" cy="90" r="5"/><path d="M130 111 L152 92 L168 104 L190 84 L190 119 L130 119 Z"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Details Coming Soon</div>
+            <h3>Project Details Coming Soon</h3>
+            <p>Full project details will be added here soon.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE CAROUSEL -->
+<section class="carousel-section bg-teal-tint" style="background:var(--teal-tint);" id="private-sector">
+  <div class="wrap">
+    <div class="carousel-head">
+      <div>
+        <h2>Private</h2>
+      </div>
+    </div>
+    <div class="carousel-wrap">
+      <button class="arrow left" aria-label="Previous">&#8249;</button>
+      <button class="arrow right" aria-label="Next">&#8250;</button>
+      <div class="carousel-track">
+
+        <div class="project-card">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="priv1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#64A197"/><stop offset="100%" stop-color="#333352"/></linearGradient></defs>
+              <rect width="320" height="190" fill="url(#priv1)"/>
+              <g fill="#ffffff" opacity="0.25"><rect x="30" y="70" width="40" height="80"/><rect x="90" y="50" width="35" height="100"/><rect x="180" y="65" width="45" height="85"/><rect x="240" y="40" width="35" height="110"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Redmond, WA</div>
+            <h3 id="sterling-lane">Single-Family Residential</h3>
+            <p>Our client took ownership of three existing parcels adjacent to one another in the Education Hill neighborhood. Each lot included an aged single-family home that would be torn down and replaced with a new structure as well as upgraded access & utilities to each lot. The work triggered sewer and storm main extensions in the public right-of-way. An existing private access tract was improved to city standards as part of the overall project.</p>
+          </div>
+        </div>
+
+        <div class="project-card" id="cedar-ridge-subdivision">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="190" fill="#F4F5F7"/>
+              <rect x="6" y="6" width="308" height="178" fill="none" stroke="#D7D9E0" stroke-width="2" stroke-dasharray="6 6"/>
+              <g stroke="#B7BAC5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="130" y="75" width="60" height="44" rx="4"/><circle cx="146" cy="90" r="5"/><path d="M130 111 L152 92 L168 104 L190 84 L190 119 L130 119 Z"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Details Coming Soon</div>
+            <h3>Project Details Coming Soon</h3>
+            <p>Full project details will be added here soon.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <svg width="100%" height="100%" viewBox="0 0 320 190" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="190" fill="#F4F5F7"/>
+              <rect x="6" y="6" width="308" height="178" fill="none" stroke="#D7D9E0" stroke-width="2" stroke-dasharray="6 6"/>
+              <g stroke="#B7BAC5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="130" y="75" width="60" height="44" rx="4"/><circle cx="146" cy="90" r="5"/><path d="M130 111 L152 92 L168 104 L190 84 L190 119 L130 119 Z"/></g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="city">Redmond, WA</div>
+            <h3>6-Lot Short Plat</h3>
+            <p>Provided preliminary land-use application services through construction plan approvals for the redevelopment of two existing parcels into six total single-family residential lots.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="dots"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="final-cta-grid">
+      <div class="final-cta-text">
+        <span class="eyebrow">Get Started</span>
+        <h2>Have a Project in Mind?</h2>
+        <p>Tell us about your project and let's discuss how Prizm can help.</p>
+        <a class="btn btn-orange" href="contact.html">Get in Touch</a>
+      </div>
+      <div class="final-cta-img">
+        <img src="images/projects-image-02.jpg" alt="Aerial view of a completed Prizm residential site development with homes, driveways, and landscaped grounds" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:260px;">
+        <a class="logo" href="index.html" style="background:#fff;border-radius:10px;padding:10px 16px;display:inline-flex;align-items:center;">
+          <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:40px;width:auto;display:block;">
+        </a>
+        <p style="font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-top:16px;">Local civil engineering solutions for public &amp; private development in the Puget Sound region.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <p>[Phone Number]<br>hello@prizmland.com<br>11808 Northup Way Suite 100, Bellevue, WA 98005</p>
+        <div class="social-row">
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 21v-7.5H16l.5-3H13.5V8.2c0-.87.24-1.46 1.5-1.46H16.6V4.14C16.3 4.1 15.3 4 14.1 4c-2.4 0-4 1.46-4 4.15v2.35H7.6v3h2.5V21h3.4z"/></svg></a>
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Prizm Consulting, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

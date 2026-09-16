@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prizm Civil Engineering — Careers (High-Fidelity)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#333352;
+    --navy-light:#474763;
+    --navy-lighter:#707086;
+    --teal-deep:#3F7A71;
+    --teal:#53968B;
+    --teal-mid:#64A197;
+    --teal-mid2:#87B6AE;
+    --teal-light:#A9CBC5;
+    --teal-tint:#EEF4F2;
+    --orange:#D89B58;
+    --orange-dark:#C4884A;
+    --tan-tint:#FBF3EA;
+    --neutral-tint:#F4F5F7;
+    --ink:#333352;
+    --body:#5B5B6B;
+    --white:#FFFFFF;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(51,51,82,0.08);
+    --shadow-hover:0 16px 40px rgba(51,51,82,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--body);background:var(--white);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Plus Jakarta Sans','Inter',Arial,sans-serif;color:var(--ink);margin:0;line-height:1.15;}
+  p{margin:0;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--teal);display:inline-block;border-radius:2px;}
+  .section{padding:90px 0;}
+  .section-head{max-width:640px;margin:0 auto 48px auto;text-align:center;}
+  .section-head h2{font-size:32px;font-weight:800;}
+  .section-head p{margin-top:14px;font-size:17px;line-height:1.6;color:var(--body);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 32px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;transition:all .2s ease;border:2px solid transparent;}
+  .btn-orange{background:var(--orange);color:var(--navy);}
+  .btn-orange:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  .btn-orange-outline{background:var(--white);color:var(--orange);border:2px solid var(--orange);}
+  .btn-orange-outline:hover{background:var(--orange);color:var(--white);transform:translateY(-1px);}
+  .btn-white{background:var(--white);color:var(--teal-deep);}
+  .btn-white:hover{background:var(--teal-tint);transform:translateY(-1px);}
+  .link-teal{color:var(--teal);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:gap .15s ease;}
+  .link-teal:hover{gap:10px;}
+  .bg-teal-tint{background:var(--teal-tint);}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);border-bottom:1px solid #EDEEF1;}
+  .nav-inner{margin:0;padding:0 40px;height:108px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  nav.links{display:flex;gap:40px;}
+  nav.links a{font-size:16px;font-weight:600;color:var(--navy-light);position:relative;padding:6px 0;}
+  nav.links a:hover{color:var(--teal);}
+  nav.links a.active{color:var(--navy);}
+  nav.links a.active::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:var(--teal);border-radius:2px;}
+
+  /* MOBILE NAV TOGGLE */
+  .nav-inner{position:relative;}
+  .nav-toggle-input{display:none;}
+  .nav-toggle-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;cursor:pointer;order:3;background:none;border:none;padding:0;}
+  .nav-toggle-btn span{display:block;width:100%;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2){opacity:0;}
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-cta{display:none;}
+  @media (max-width:980px){
+    .nav-inner{flex-wrap:wrap;}
+    .nav-toggle-btn{display:flex;}
+    nav.links{
+      order:4;flex-basis:100%;display:none;flex-direction:column;gap:0;
+      background:var(--white);position:absolute;left:0;right:0;top:100%;
+      padding:6px 40px 18px;box-shadow:0 16px 30px rgba(51,51,82,0.12);
+      border-bottom:1px solid #ECEDF1;
+    }
+    nav.links a{padding:14px 0;border-bottom:1px solid #F0F0F3;}
+    nav.links a:last-of-type{border-bottom:none;}
+    .nav-toggle-input:checked ~ nav.links{display:flex;}
+    .nav-inner > a.btn{display:none;}
+    .mobile-cta{display:inline-flex;margin-top:6px;}
+  }
+
+
+  .hero{position:relative;min-height:460px;display:flex;align-items:center;overflow:hidden;}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg, rgba(51,51,82,0.88) 0%, rgba(63,122,113,0.74) 55%, rgba(83,150,139,0.55) 100%);}
+  .hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto;padding:90px 40px;width:100%;text-align:center;}
+  .hero-content .eyebrow{color:#fff;justify-content:center;}
+  .hero-content .eyebrow::before{background:#fff;}
+  .hero-content h1{color:#fff;font-size:42px;font-weight:800;letter-spacing:-0.5px;}
+  .hero-content .sub{color:rgba(255,255,255,0.88);font-size:17px;line-height:1.65;max-width:560px;margin:22px auto 0 auto;}
+  .hero-content .btn{margin-top:32px;}
+
+  .life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:16px;}
+  .life-card{text-align:center;padding:0 12px;}
+  .life-card h3{font-size:20px;font-weight:800;margin-bottom:10px;}
+  .life-card h3 .star{color:var(--teal);margin-right:6px;}
+  .life-card p{font-size:16px;line-height:1.65;color:var(--body);}
+
+  .team-photo-banner{margin-top:64px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  .team-photo-banner img{width:100%;height:auto;display:block;}
+
+  .positions-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:40px;align-items:start;}
+  .positions-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:270px;position:sticky;top:130px;}
+  .job-card{border:1px solid #ECEDF1;border-radius:12px;margin-bottom:16px;overflow:hidden;transition:border-color .2s ease;}
+  .job-card.open{border-color:var(--teal);}
+  .job-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;cursor:pointer;background:var(--white);}
+  .job-head h3{font-size:16.5px;font-weight:800;}
+  .job-head .meta{font-size:12.5px;color:var(--navy-lighter);margin-top:5px;}
+  .job-toggle{font-size:13px;font-weight:700;color:var(--teal);white-space:nowrap;flex-shrink:0;margin-left:16px;}
+  .job-details{max-height:0;overflow:hidden;transition:max-height .35s ease;background:var(--teal-tint);}
+  .job-card.open .job-details{max-height:900px;}
+  .job-details-inner{padding:6px 24px 28px 24px;}
+  .job-details-inner h4{font-size:13.5px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.8px;margin:18px 0 10px 0;}
+  .job-details-inner p{font-size:17px;line-height:1.7;color:var(--body);}
+  .job-details-inner ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .job-details-inner li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.55;color:var(--body);}
+  .job-details-inner li svg{flex-shrink:0;margin-top:3px;}
+  .job-details-inner .btn{margin-top:20px;padding:12px 26px;font-size:13px;}
+
+  .interest-form{max-width:760px;margin:0 auto;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  .form-field label{font-size:12.5px;font-weight:700;color:var(--navy);display:block;margin-bottom:8px;}
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%;padding:13px 16px;border-radius:8px;border:1px solid #D8D9E0;font-family:'Inter',Arial,sans-serif;
+    font-size:13.5px;color:var(--navy);background:var(--white);
+  }
+  .form-field textarea{resize:vertical;min-height:110px;}
+  .full{grid-column:1 / -1;}
+  .dropzone{
+    border:2px dashed var(--teal);border-radius:10px;background:var(--teal-tint);
+    text-align:center;padding:26px;font-size:13.5px;font-weight:700;color:var(--teal-deep);margin-bottom:28px;cursor:pointer;
+  }
+  .form-submit{text-align:center;}
+  .field-error{border-color:#B3261E !important;background:#FCEEEE;}
+
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(51,51,82,0.55);z-index:999;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-card{
+    position:relative;background:var(--white);border-radius:18px;padding:44px 40px 36px 40px;
+    max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(51,51,82,0.25);
+  }
+  .modal-close{
+    position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:none;
+    background:var(--neutral-tint);color:var(--navy-lighter);font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+  }
+  .modal-close:hover{background:#E5E7EC;}
+  .modal-icon{
+    width:56px;height:56px;border-radius:50%;background:var(--teal);margin:0 auto 20px auto;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .modal-card h3{font-size:22px;font-weight:800;margin-bottom:14px;}
+  .modal-card p{font-size:16px;line-height:1.7;color:var(--body);}
+  .modal-card .btn{margin-top:26px;}
+
+  footer{background:var(--navy);color:#fff;padding:64px 0 28px 0;}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-col h4{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-light);margin-bottom:18px;font-weight:700;}
+  .footer-links{display:flex;flex-direction:column;gap:12px;}
+  .footer-links a{font-size:14px;color:rgba(255,255,255,0.82);}
+  .footer-links a:hover{color:var(--teal-light);}
+  .footer-contact p{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.9;}
+  .social-row{display:flex;gap:12px;margin-top:18px;}
+  .social-circle{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;transition:background .2s ease;}
+  .social-circle:hover{background:var(--teal);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px;}
+  .footer-bottom p{font-size:12.5px;color:rgba(255,255,255,0.55);}
+
+  @media (max-width:980px){
+    .life-grid{grid-template-columns:1fr;}
+    .positions-grid{grid-template-columns:1fr;}
+    .positions-img{position:static;height:200px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+  /* PHONE OVERRIDES */
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .hero-content{padding:60px 20px;}
+    .hero-content h1{font-size:32px;}
+    .form-field input,.form-field select,.form-field textarea{font-size:16px;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:76px;width:auto;display:block;margin-left:-4px;">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Menu"><span></span><span></span><span></span></label>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+          <a class="btn btn-orange-outline mobile-cta" href="contact.html">Get in Touch</a>
+    </nav>
+    <a class="btn btn-orange-outline" href="contact.html">Get in Touch</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-art">
+    <img src="images/careers-the-prizm-team-on-a-backcountry-ski-trip.jpg" alt="The Prizm team on a backcountry ski trip in the mountains" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Build Your Career at Prizm</h1>
+    <p class="sub">At Prizm, we believe great projects start with great people. Join a collaborative team where your ideas are valued, your growth is supported, and your work makes a lasting impact.</p>
+    <a class="btn btn-orange-outline" href="#open-positions" style="background:transparent;border-color:#fff;color:#fff;">&#8595; View Open Positions</a>
+  </div>
+</section>
+
+<!-- LIFE AT PRIZM -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">Team Culture</span>
+      <h2>Life at Prizm</h2>
+      <p>We're a small, collaborative team where communication, relationships, and taking ownership of your work matter.</p>
+    </div>
+    <div class="life-grid">
+      <div class="life-card">
+        <h3><span class="star">&#9733;</span>Collaborative</h3>
+        <p>Work closely with a small team where communication and everyone's input matter.</p>
+      </div>
+      <div class="life-card">
+        <h3><span class="star">&#9733;</span>People-focused</h3>
+        <p>Build strong relationships with teammates, clients, and the communities you serve.</p>
+      </div>
+      <div class="life-card">
+        <h3><span class="star">&#9733;</span>Room to grow</h3>
+        <p>Take ownership of meaningful work and develop alongside an experienced team.</p>
+      </div>
+    </div>
+    <div class="team-photo-banner">
+      <img src="images/careers-image-02.jpg" alt="The Prizm team collage: outside together, reviewing plans, playing arcade games, at their desks, on a waterfront deck, and cheering during a football watch party">
+    </div>
+  </div>
+</section>
+
+<!-- OPEN POSITIONS -->
+<section class="section bg-teal-tint" id="open-positions">
+  <div class="wrap">
+    <div class="section-head" style="text-align:left;margin:0 0 44px 0;">
+      <span class="eyebrow">Join the Team</span>
+      <h2>Open Positions</h2>
+    </div>
+    <div class="positions-grid">
+      <div class="positions-img">
+        <img src="images/careers-image-03.jpg" alt="The Prizm team working together on laptops at a conference table" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block;">
+      </div>
+      <div>
+
+        <div class="job-card open">
+          <div class="job-head" onclick="prizmToggleJob(this)">
+            <div>
+              <h3>Project Engineer</h3>
+              <div class="meta">Kirkland, WA &middot; Full Time</div>
+            </div>
+            <div class="job-toggle">&#8722; Hide Details</div>
+          </div>
+          <div class="job-details">
+            <div class="job-details-inner">
+              <h4>About the Role</h4>
+              <p>Leads the design and delivery of civil infrastructure and site development projects, coordinating multidisciplinary teams while managing scope, schedule, and budget. Provides technical oversight, mentors junior staff, and serves as a key point of contact for clients, agencies, and project stakeholders.</p>
+              <h4>What You'll Do</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lead design and delivery of civil infrastructure and site development projects</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coordinate with multidisciplinary teams, clients, and permitting agencies</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mentor junior engineering staff</li>
+              </ul>
+              <h4>Qualifications</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bachelor's degree in Civil Engineering or related field</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> PE license, or ability to obtain within 12 months</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5+ years of relevant civil engineering experience</li>
+              </ul>
+              <a class="btn btn-orange" href="#apply">Apply for This Position</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-head" onclick="prizmToggleJob(this)">
+            <div>
+              <h3>Engineer</h3>
+              <div class="meta">Bellevue, WA &middot; Full Time</div>
+            </div>
+            <div class="job-toggle">+ View Details</div>
+          </div>
+          <div class="job-details">
+            <div class="job-details-inner">
+              <h4>About the Role</h4>
+              <p>Supports project delivery across planning, site design, and civil engineering assignments, working under the direction of senior staff on design calculations, drawings, and permitting submittals.</p>
+              <h4>What You'll Do</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prepare civil design drawings and calculations</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Support permitting and agency submittals</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Assist with construction administration</li>
+              </ul>
+              <h4>Qualifications</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bachelor's degree in Civil Engineering</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> EIT certification preferred</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1&#8211;3 years of relevant experience</li>
+              </ul>
+              <a class="btn btn-orange" href="#apply">Apply for This Position</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-head" onclick="prizmToggleJob(this)">
+            <div>
+              <h3>CAD Designer</h3>
+              <div class="meta">Bellevue, WA &middot; Part Time</div>
+            </div>
+            <div class="job-toggle">+ View Details</div>
+          </div>
+          <div class="job-details">
+            <div class="job-details-inner">
+              <h4>About the Role</h4>
+              <p>Produces accurate, well-organized CAD drawings in support of site design and civil engineering projects, working closely with engineers throughout each phase of design.</p>
+              <h4>What You'll Do</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Develop and update civil site plans and details</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Maintain drawing standards and project files</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coordinate revisions with the design team</li>
+              </ul>
+              <h4>Qualifications</h4>
+              <ul>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Proficiency in AutoCAD Civil 3D</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Associate degree or equivalent CAD experience</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#53968B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Strong attention to detail</li>
+              </ul>
+              <a class="btn btn-orange" href="#apply">Apply for This Position</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="section" id="apply">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">Get In Touch</span>
+      <h2>Interested in Joining the Team?</h2>
+      <p>Don't see a role that fits your profile? Reach out anyway.</p>
+    </div>
+    <div class="interest-form">
+      <div class="form-row">
+        <div class="form-field"><label>First Name</label><input type="text" id="appFirstName" placeholder="Enter first name"></div>
+        <div class="form-field"><label>Last Name</label><input type="text" id="appLastName" placeholder="Enter last name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Email</label><input type="email" id="appEmail" placeholder="Enter email"></div>
+        <div class="form-field"><label>Phone</label><input type="tel" id="appPhone" placeholder="Enter phone number"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field full">
+          <label>Position interested in</label>
+          <select id="appPosition">
+            <option value="">Select a position</option>
+            <option>Project Engineer</option>
+            <option>Engineer</option>
+            <option>CAD Designer</option>
+            <option>General Interest</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field full">
+          <label>Tell us about yourself</label>
+          <textarea id="appMessage" placeholder="Share your background, experience, and what interests you about Prizm."></textarea>
+        </div>
+      </div>
+      <div class="dropzone" id="appDropzone" onclick="document.getElementById('appResumeInput').click()">&#8593; Upload Resume</div>
+      <input type="file" id="appResumeInput" style="display:none;" onchange="prizmResumeSelected(this)">
+      <p id="appFormError" style="display:none;color:#B3261E;font-size:13px;text-align:center;margin:-14px 0 20px 0;">Please fill out all fields and upload your resume before submitting.</p>
+      <div class="form-submit">
+        <button type="button" class="btn btn-orange" id="appSubmitBtn" onclick="prizmSubmitApplication()">Submit Application</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="appModalOverlay">
+  <div class="modal-card">
+    <button class="modal-close" onclick="prizmCloseModal()" aria-label="Close">&times;</button>
+    <div class="modal-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>Thank you for applying!</h3>
+    <p>We've received your application and our team will review it shortly. If your background is a good fit for one of our open roles, we'll be in touch to schedule a conversation.</p>
+    <button type="button" class="btn btn-orange" onclick="prizmCloseModal()">Done</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:260px;">
+        <a class="logo" href="index.html" style="background:#fff;border-radius:10px;padding:10px 16px;display:inline-flex;align-items:center;">
+          <img src="images/home-prizm-civil-engineering.png" alt="Prizm Civil Engineering" style="height:40px;width:auto;display:block;">
+        </a>
+        <p style="font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-top:16px;">Local civil engineering solutions for public &amp; private development in the Puget Sound region.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <p>[Phone Number]<br>hello@prizmland.com<br>11808 Northup Way Suite 100, Bellevue, WA 98005</p>
+        <div class="social-row">
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 21v-7.5H16l.5-3H13.5V8.2c0-.87.24-1.46 1.5-1.46H16.6V4.14C16.3 4.1 15.3 4 14.1 4c-2.4 0-4 1.46-4 4.15v2.35H7.6v3h2.5V21h3.4z"/></svg></a>
+          <a class="social-circle" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Prizm Consulting, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function prizmToggleJob(headEl){
+    var card = headEl.closest('.job-card');
+    var wasOpen = card.classList.contains('open');
+    document.querySelectorAll('.job-card').forEach(function(c){
+      c.classList.remove('open');
+      c.querySelector('.job-toggle').textContent = '+ View Details';
+    });
+    if(!wasOpen){
+      card.classList.add('open');
+      card.querySelector('.job-toggle').textContent = '− Hide Details';
+    }
+  }
+
+  var prizmResumeFile = null;
+
+  function prizmResumeSelected(input){
+    var dz = document.getElementById('appDropzone');
+    if(input.files && input.files.length > 0){
+      prizmResumeFile = input.files[0];
+      dz.textContent = '✓ ' + prizmResumeFile.name;
+      dz.classList.remove('field-error');
+    } else {
+      prizmResumeFile = null;
+      dz.textContent = '↑ Upload Resume';
+    }
+  }
+
+  // ============================================================
+  // PASTE YOUR WEB3FORMS ACCESS KEY BELOW (between the quotes).
+  // Get it free at https://web3forms.com — enter your email there
+  // and they will email you this key. You can reuse the same key
+  // as the contact page, or generate a second one so applications
+  // land in a different inbox than general inquiries.
+  // Submissions will NOT send until this placeholder is replaced.
+  //
+  // NOTE: resume file attachments only send on Web3Forms' paid Pro
+  // plan ($12/mo). On the free plan, the applicant's text answers
+  // will still submit, but the resume file itself will NOT arrive.
+  // ============================================================
+  var WEB3FORMS_APPLICATION_KEY = "  ee626e47-decc-473a-8d01-40a8e1df49e8";
+
+  function prizmSubmitApplication(){
+    var fields = ['appFirstName','appLastName','appEmail','appPhone','appPosition','appMessage'];
+    var allFilled = true;
+    fields.forEach(function(id){
+      var el = document.getElementById(id);
+      var empty = !el.value || !el.value.trim();
+      el.classList.toggle('field-error', empty);
+      if(empty) allFilled = false;
+    });
+    var dz = document.getElementById('appDropzone');
+    var resumeOk = !!prizmResumeFile;
+    dz.classList.toggle('field-error', !resumeOk);
+
+    var errorMsg = document.getElementById('appFormError');
+    if(!allFilled || !resumeOk){
+      errorMsg.textContent = 'Please fill out all fields and upload your resume before submitting.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+
+    var btn = document.getElementById('appSubmitBtn');
+    var originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    var formData = new FormData();
+    formData.append('access_key', WEB3FORMS_APPLICATION_KEY);
+    formData.append('subject', 'New job application from prizmland.com careers page');
+    formData.append('from_name', document.getElementById('appFirstName').value + ' ' + document.getElementById('appLastName').value);
+    formData.append('first_name', document.getElementById('appFirstName').value);
+    formData.append('last_name', document.getElementById('appLastName').value);
+    formData.append('email', document.getElementById('appEmail').value);
+    formData.append('phone', document.getElementById('appPhone').value);
+    formData.append('position', document.getElementById('appPosition').value);
+    formData.append('message', document.getElementById('appMessage').value);
+    if(prizmResumeFile){
+      formData.append('resume', prizmResumeFile);
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        if(data.success){
+          document.getElementById('appModalOverlay').classList.add('open');
+        } else {
+          errorMsg.textContent = 'Something went wrong submitting your application. Please try again or email us directly.';
+          errorMsg.style.display = 'block';
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        errorMsg.textContent = 'Something went wrong submitting your application. Please try again or email us directly.';
+        errorMsg.style.display = 'block';
+      });
+  }
+
+  function prizmCloseModal(){
+    document.getElementById('appModalOverlay').classList.remove('open');
+  }
+</script>
+</body>
+</html>
